@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная страница</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <div>
+<button>
+  <img  class="mark"  src="../static/like.png" alt="like">
+</button>
+  </div>
+
+    <div class="cards">
+     {% for item in data%}
+     <div class="karta">
+      <img src="../static/cards/{{item.id}}.jpg" alt="Але">
+     <h1>{{ item.child_name }}</h5>
+     <h2>{{ item.lastname }}</h2>
+     <p>Рост: {{ item.child_height }}</p>
+      <p>Вес: {{ item.child_weight }}</p>
+      <p>Нога: {{ item.child_foot_size }}</p>
+      <p>Лет: {{ item.age }}</p>
+      <button>
+        <img  class="mark"  src="../static/like.png" alt="like">
+      </button>
+    </div>
+    {% endfor %}
+    </div>
+
+</body>
+</html>
