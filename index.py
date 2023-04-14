@@ -14,7 +14,7 @@ def index():
 
 @app.route('/deti')
 def deti():
-    return render_template("deti.html")
+    return render_template("deti.html", data=data)
 
 @app.route('/add_card', methods=['POST'])
 def add_card():
@@ -27,7 +27,7 @@ def add_card():
     card['child_foot_size'] = request.form ['child_foot_size']
     card['age'] = request.form ['age']
     data.append(card)
-    print (card)
+    print(card)
     return redirect('/')
 
 @app.route('/delete_card', methods=['POST'])
