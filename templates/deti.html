@@ -10,9 +10,8 @@
 
 <body>
     <section id="logic">
-      <div class="add_card">
-        <!-- делаешь красивые стили для добавления продукта -->
-        <form method="POST" action="/add_card">
+      <div class="card">
+        <form method="POST" action="/add_card" class="add_card">
           <input type="text" name="child_name" placeholder="child_name">
           <input type="text" name="child_lastname" placeholder="child_lastname">
           <input type="text" name="child_height" placeholder="child_height">
@@ -21,19 +20,28 @@
           <input type="text" name="age" placeholder="age">
           <input type="submit" value="Добавить ребенка">
         </form>
+        <div class="add_card">
+          <form class=add_card action="/add_card" method="POST" enctype="multipart/form-data">
+            <input type="text" name="child_name" placeholder="name">
+            <input type="range" min="18" max="50" name="age" placeholder="age">
+            <input type="range" min="40" max="150" name="overall_rating" placeholder="overall_rating">
+            <input type="range" min="150" max="220" name="child_height" placeholder="height">
+            <input type="file" name="image" placeholder="image" accept=".jpg, .png" >
+            <input type="submit" value="Добавить">
+          </form>
+        </div> 
+    
       </div>
       <div class="cards">
         {% for item in data%}
         <div class="yes">
           <form class="delete" method="POST" action="/delete_card">
-            <!-- инпут нажимается, но его не видно -->
-            <input type="submit" value="awfwafwafawfwaf">
-            <img src="../static/bruh.jpg" class="delete" />
+            <input type="submit" placeholder="Добавить" value="x" class="dad" > 
           </input>
             <input type="hidden" name="id" value="{{ item.id }}" />
           </form>
           <img src="../static/cards/{{item.id}}.jpg" alt="Але" class="image">
-          <h1>{{ item.child_name }}</h5>
+          <h1>{{ item.child_name }}</h1>
           <h2>{{ item.lastname }}</h2>
           <p>Рост: {{ item.child_height }}</p>
           <p>Вес: {{ item.child_weight }}</p>
