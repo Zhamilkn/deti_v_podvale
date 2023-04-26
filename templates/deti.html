@@ -11,25 +11,16 @@
 <body>
     <section id="logic">
       <div class="card">
-        <form method="POST" action="/add_card" class="add_card">
+        <form method="POST" action="/add_card" class="add_card" enctype="multipart/form-data">
           <input type="text" name="child_name" placeholder="child_name">
           <input type="text" name="child_lastname" placeholder="child_lastname">
-          <input type="text" name="child_height" placeholder="child_height">
-          <input type="text" name="child_weight" placeholder="child_weight">
-          <input type="text" name="child_foot_size" placeholder="child_foot_size">
+          <input type="range" min="100" max="200" name="child_height" placeholder="child_height">
+          <input type="range" min="20" max="100" name="child_weight" placeholder="child_weight">
+          <input type="range" min="30" max="46" name="child_foot_size" placeholder="child_foot_size">
           <input type="text" name="age" placeholder="age">
+          <input type="file" name="image" placeholder="image" accept=".jpg, .png" >
           <input type="submit" value="Добавить ребенка">
         </form>
-        <div class="add_card">
-          <form class=add_card action="/add_card" method="POST" enctype="multipart/form-data">
-            <input type="text" name="child_name" placeholder="name">
-            <input type="range" min="18" max="50" name="age" placeholder="age">
-            <input type="range" min="40" max="150" name="overall_rating" placeholder="overall_rating">
-            <input type="range" min="150" max="220" name="child_height" placeholder="height">
-            <input type="file" name="image" placeholder="image" accept=".jpg, .png" >
-            <input type="submit" value="Добавить">
-          </form>
-        </div> 
     
       </div>
       <div class="cards">

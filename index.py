@@ -25,23 +25,21 @@ def deti():
 @app.route('/add_card', methods=['POST'])
 def add_card():
     card = {}
-    card ['id'] = str(datetime.datetime.now())[-6:-1]
-    card ["child_name"] = request.form["child_name"]
-    card ['child_lastname'] = request.form ['child_lastname']
-    card ['child_height'] =  request.form ['child_height']
-    card ['child_weight'] = request.form ['child_weight']
-    card ['child_foot_size'] = request.form ['child_foot_size']
-    card ['height'] = request.form ['height']
-    card ["overall_rating"] = request.form ["overall_rating"]
-    card ['age'] = request.form ['age']
-    image = request.files["image"]
+    card['id'] = str(datetime.datetime.now())[-6:-1]
+    card['child_name'] = request.form['child_name']
+    card['child_lastname'] = request.form['child_lastname']
+    card['child_height'] =  request.form['child_height']
+    card['child_weight'] = request.form['child_weight']
+    card['child_foot_size'] = request.form['child_foot_size']
+
+    image = request.files['image']
     filename = f"{card['id']}.jpg"
-    file_path = os.path.join('static,' 'cards', filename).replace("\\","/")
+    file_path = os.path.join('static','cards', filename).replace("\\","/")
     image.save(file_path)
 
     data.append(card)
     write_data(f"data = {data}")
-    return redirect('/admin')
+    return redirect('/deti')
 
 
 @app.route('/delete_card', methods=['POST'])
@@ -52,6 +50,12 @@ def delete_card():
         if str(card['id']) == str(id):
             data.remove(card)
         return redirect('/deti')
+    
+
+# написать функцию с помощтю которой можно будет лайкать детей
+# отдельный роут @add_like
+# в дата для новых карточек добавь поле likes = 0
+# и каждый раз при увеличении лайков увеличивай это поле на 1
 
 
 if __name__ == '__main__':
